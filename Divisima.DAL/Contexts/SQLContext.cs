@@ -34,10 +34,10 @@ namespace Divisima.DAL.Contexts
             //Data Seed
             modelBuilder.Entity<Admin>().HasData(new Admin {
                 ID=1,
-                NameSurname="Bekir Oturakçı",
+                NameSurname="Eren Çiçek",
                 LastLoginDate=DateTime.Now,
                 LastLoginIP="",
-                Username="bekir",
+                Username="eren",
                 Password= "202cb962ac59075b964b07152d234b70"
             });
         }

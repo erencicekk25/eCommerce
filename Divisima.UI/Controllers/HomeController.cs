@@ -25,7 +25,7 @@ namespace Divisima.UI.Controllers
         public IActionResult Index()
         {
 
-            //HttpContext.Session.SetString("S1", "Infotech Academy");//session create
+            //HttpContext.Session.SetString("S1", "DivisimaAuthh");//session create
             //IEnumerable<Product> products = repoProduct.GetAll();
             //HttpContext.Session.SetString("S1",JsonConvert.SerializeObject(products));
             //CookieOptions cookie = new CookieOptions();
