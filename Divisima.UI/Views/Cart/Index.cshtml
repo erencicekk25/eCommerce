@@ -1,0 +1,138 @@
+﻿@model List<Cart>
+<div class="page-top-info">
+    <div class="container">
+        <h4>ALIŞVERİŞ SEPETİM</h4>
+        <div class="site-pagination">
+            <a href="/">Ana Sayfa</a> /
+            <a asp-controller="Cart" asp-action="Index">Sepetim</a>
+        </div>
+    </div>
+</div>
+<!-- Page info end -->
+<!-- cart section end -->
+<section class="cart-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="cart-table">
+                    <h3>Sepet Detayları</h3>
+                    <div class="cart-table-warp">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="product-th">Ürün</th>
+                                    <th class="quy-th">Miktar</th>
+                                    <th class="quy-th"></th>
+                                    <th class="total-th">Fiyat</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (Cart cart in Model)
+                                {
+                                    <tr>
+                                        <td class="product-col">
+                                            <img src="@cart.ProductPicture" alt="@cart.ProductName">
+                                            <div class="pc-title">
+                                                <h4>@cart.ProductName</h4>
+                                                <p>@cart.ProductPrice TL</p>
+                                            </div>
+                                        </td>
+                                        <td class="quy-col">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input type="text" value="@cart.Quantity">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td><i onclick="removeCart(@cart.ProductID)" class="flaticon-remove removeIcon"></i></td>
+                                        <td class="total-col"><h4>@(cart.ProductPrice*cart.Quantity)  TL </h4></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="total-cost">
+                        <h6>Toplam <span>@Model.Sum(x=>x.Quantity*x.ProductPrice) TL</span></h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 card-right">
+                <a asp-controller="Cart" asp-action="CheckOut" class="site-btn">Alışverişi Tamamla</a>
+                <a href="" class="site-btn sb-dark">Alışverişe Devam</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cart section end -->
+<!-- Related product section -->
+<section class="related-product-section">
+    <div class="container">
+        <div class="section-title text-uppercase">
+            <h2>Continue Shopping</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <div class="tag-new">New</div>
+                        <img src="./img/product/2.jpg" alt="">
+                        <div class="pi-links">
+                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="pi-text">
+                        <h6>$35,00</h6>
+                        <p>Black and White Stripes Dress</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <img src="./img/product/5.jpg" alt="">
+                        <div class="pi-links">
+                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="pi-text">
+                        <h6>$35,00</h6>
+                        <p>Flamboyant Pink Top </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <img src="./img/product/9.jpg" alt="">
+                        <div class="pi-links">
+                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="pi-text">
+                        <h6>$35,00</h6>
+                        <p>Flamboyant Pink Top </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="product-item">
+                    <div class="pi-pic">
+                        <img src="./img/product/1.jpg" alt="">
+                        <div class="pi-links">
+                            <a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD TO CART</span></a>
+                            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+                        </div>
+                    </div>
+                    <div class="pi-text">
+                        <h6>$35,00</h6>
+                        <p>Flamboyant Pink Top </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Related product section end -->

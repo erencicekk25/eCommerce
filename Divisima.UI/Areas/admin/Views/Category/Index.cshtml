@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Category>
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="col-md-12 col-sm-12  ">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Kategori Yönetimi</h2>
+                    <a asp-controller="Category" asp-action="New" class="btn btn-success float-right" style="color:#fff">Yeni Kategori</a>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    <div class="table-responsive">
+                        <table class="table table-striped jambo_table bulk_action">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="column-title">Kategori Adı</th>
+                                    <th class="column-title">Sıra</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @foreach (Category s in Model)
+                                {
+                                    <tr class="even pointer">
+                                        <td>
+                                            <a asp-controller="Category" asp-action="Edit" asp-route-id="@s.ID">
+                                                @if (s.ParentID == null)
+                                                {
+                                                    @s.Name
+                                                }
+                                                else
+                                                {
+                                                    @s.ParentCategory.Name <text> > </text> @s.Name
+                                                }
+                                            </a>
+                                        </td>
+                                        <td>@s.DisplayIndex</td>
+                                        <td>
+                                            <a asp-controller="Category" asp-action="Delete" asp-route-id="@s.ID" class="btn btn-danger" style="color:#fff">Sil</a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- /page content -->

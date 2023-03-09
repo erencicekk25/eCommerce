@@ -1,0 +1,21 @@
+﻿@model Product
+<div class="product-item">
+    <div class="pi-pic">
+        @if (Model.ProductPictures.Any())
+        {
+            <img src="@Model.ProductPictures.FirstOrDefault().Picture" alt="@Model.Name">
+        }
+        else
+        {
+            <img src="/img/hazirlaniyor.png" alt="@Model.Name">
+        }
+        <div class="pi-links">
+            <a asp-controller="Product" asp-action="Detail" asp-route-name="@GeneralTool.getURL(Model.Name)" asp-route-id="@Model.ID" class="add-card"><i class="flaticon-bag"></i><span>SEPETE EKLE</span></a>
+            <a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+        </div>
+    </div>
+    <div class="pi-text">
+        <h6>@Model.Price TL</h6>
+        <p>@Model.Name</p>
+    </div>
+</div>

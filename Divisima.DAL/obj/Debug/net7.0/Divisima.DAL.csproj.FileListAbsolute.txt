@@ -1,0 +1,12 @@
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\bin\Debug\net7.0\Divisima.DAL.deps.json
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\bin\Debug\net7.0\Divisima.DAL.dll
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\bin\Debug\net7.0\Divisima.DAL.pdb
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\Divisima.DAL.csproj.AssemblyReference.cache
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\Divisima.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\Divisima.DAL.AssemblyInfoInputs.cache
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\Divisima.DAL.AssemblyInfo.cs
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\Divisima.DAL.csproj.CoreCompileInputs.cache
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\Divisima.DAL.dll
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\refint\Divisima.DAL.dll
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\Divisima.DAL.pdb
+C:\Users\XR Tech\source\repos\Divisima\Divisima.DAL\obj\Debug\net7.0\ref\Divisima.DAL.dll

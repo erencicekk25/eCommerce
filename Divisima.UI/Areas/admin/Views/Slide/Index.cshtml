@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Slide>
+<div class="right_col" role="main">
+    <div class="">
+            <div class="clearfix"></div>
+            <div class="col-md-12 col-sm-12  ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Slayt Yönetimi</h2>
+                        <a asp-controller="Slide" asp-action="New" class="btn btn-success float-right" style="color:#fff">Yeni Slayt</a>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="x_content">
+                        <div class="table-responsive">
+                            <table class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title">Slogan</th>
+                                        <th class="column-title">Slayt Başlığı</th>
+                                        <th class="column-title">Fiyat</th>
+                                        <th class="column-title">Link</th>
+                                        <th class="column-title">Sıra</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (Slide s in Model)
+                                    {
+                                        <tr class="even pointer">
+                                            <td><a asp-controller="Slide" asp-action="Edit" asp-route-id="@s.ID">@s.Slogan</a></td>
+                                            <td>@s.Title</td>
+                                            <td>@s.Price TL</td>
+                                            <td>@s.Link</td>
+                                            <td>@s.DisplayIndex</td>
+                                            <td>
+                                                <a asp-controller="Slide" asp-action="Delete" asp-route-id="@s.ID" class="btn btn-danger" style="color:#fff">Sil</a>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->

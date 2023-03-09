@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Divisima.API</name>
+    </assembly>
+    <members>
+        <member name="M:Divisima.API.Controllers.HomeController.Add(Divisima.DAL.Entities.Brand)">
+            <summary>
+            Add metodu ile şu şekilde veri gönderebilirsiniz {"name":"markaAdı"}
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Divisima.API.Controllers.HomeController.Update(Divisima.DAL.Entities.Brand)">
+            <summary>
+            açıklama kısmı
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

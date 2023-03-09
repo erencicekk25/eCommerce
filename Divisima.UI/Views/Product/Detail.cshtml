@@ -1,0 +1,147 @@
+﻿@model ProductVM
+@*<ul>
+    @foreach (Product item in ViewBag.SessionDegeri)
+    {
+        <li>@item.Name</li>
+    }
+</ul>*@
+@*<h1>@ViewBag.CerezDegeri</h1>*@
+<div class="page-top-info">
+    <div class="container">
+        <h4>@Model.Product.Name Detayları</h4>
+        <div class="site-pagination">
+            <a href="/">Ana Sayfa</a> /
+            <a href="">@Model.Product.Category.Name</a>
+        </div>
+    </div>
+</div>
+<!-- Page info end -->
+<!-- product section -->
+<section class="product-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="product-pic-zoom">
+                    @if (Model.Product.ProductPictures.Any())
+                    {
+                        <img class="product-big-img" src="@Model.Product.ProductPictures.FirstOrDefault().Picture" alt="@Model.Product.Name">
+                    }
+                    else
+                    {
+                        <img class="product-big-img" src="/img/hazirlaniyor.png" alt="@Model.Product.Name">
+                    }
+
+                </div>
+                @if (Model.Product.ProductPictures.Count() > 1)
+                {
+                    <div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
+                        <div class="product-thumbs-track">
+                            @{
+                                int x = 0;
+                            }
+                            @foreach (ProductPicture pp in Model.Product.ProductPictures)
+                            {
+                                <div class="pt @(x==0?"active":"")" data-imgbigurl="@pp.Picture"><img src="@pp.Picture" alt="@pp.Name"></div>
+                                x++;
+                            }
+
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="col-lg-6 product-details">
+                <h2 class="p-title">@Model.Product.Name</h2>
+                <h3 class="p-price">@Model.Product.Price TL</h3>
+                <h4 class="p-stock">
+                    Stok Durumu:
+                    @if (Model.Product.Stock > 0)
+                    {
+                        <span style="color:green">Stokta Var</span>
+                        @if (Model.Product.Stock < 20)
+                        {
+                            <span style="color:chartreuse">Son @Model.Product.Stock Ürün</span>
+                        }
+                    }
+                    else
+                    {
+                        <span style="color:red">Tükendi</span>
+                    }
+                </h4>
+                <div class="quantity">
+                    <p>Miktar</p>
+                    <div class="pro-qty"><input class="inputQuantity" type="text" value="1"></div>
+                </div>
+                <button onclick="addCart(@Model.Product.ID,@Model.Product.Stock)" class="site-btn">SEPETE EKLE</button>
+                <div id="accordion" class="accordion-area">
+                    <div class="panel">
+                        <div class="panel-header" id="headingOne">
+                            <button class="panel-link active" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">DETAYLI BİLGİ</button>
+                        </div>
+                        <div id="collapse1" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="panel-body">
+                               @Html.Raw(Model.Product.Detail)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingTwo">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">Teslimat Seçenekleri</button>
+                        </div>
+                        <div id="collapse2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <div class="panel-body">
+                                @Html.Raw(Model.Product.CargoDetail)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel">
+                        <div class="panel-header" id="headingThree">
+                            <button class="panel-link" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">İptal İade ŞArtları</button>
+                        </div>
+                        <div id="collapse3" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                            <div class="panel-body">
+                                <h4>7 Gün İçerisinde İade İmkanı</h4>
+                                Ürün paketini bozmadan geri iade edebilirsiniz...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="social-sharing">
+                    <a href=""><i class="fa fa-google-plus"></i></a>
+                    <a href=""><i class="fa fa-pinterest"></i></a>
+                    <a href=""><i class="fa fa-facebook"></i></a>
+                    <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- product section end -->
+<!-- RELATED PRODUCTS section -->
+<section class="related-product-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>BENZER ÜRÜNLER</h2>
+        </div>
+        <div class="product-slider owl-carousel">
+           @foreach (Product product in Model.RelatedProducts)
+           {
+               <partial name="_Product" model="@product" />
+           }
+        </div>
+    </div>
+</section>
+<!-- RELATED PRODUCTS section end -->
+<div class="modal fade" id="modalSepet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">SEPETE EKLENDİ...</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body"></div>
+        </div>
+    </div>
+</div>

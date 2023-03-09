@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Category>
+<div id="preloder">
+    <div class="loader"></div>
+</div>
+
+<!-- Header section -->
+<header class="header-section">
+    <div class="header-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2 text-center text-lg-left">
+                    <!-- logo -->
+                    <a href="/" class="site-logo">
+                        <img src="img/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="col-xl-6 col-lg-5">
+                    <form class="header-search-form" style="position:relative">
+                        <input class="inputSearch" type="text" name="search" placeholder="Site içerisinde ara ....">
+                        <button><i class="flaticon-search"></i></button>
+                        <div class="searchResult">
+
+                        </div>
+                    </form>
+                </div>
+                <div class="col-xl-4 col-lg-5">
+                    <div class="user-panel">
+                        <div class="up-item">
+                            <i class="flaticon-profile"></i>
+                            <a href="#">Sign</a> In or <a href="#">Create Account</a>
+                        </div>
+                        <div class="up-item">
+                            <div class="shopping-card">
+                                <i class="flaticon-bag"></i>
+                                <span>0</span>
+                            </div>
+                            <a asp-controller="Cart" asp-action="Index">Alışveriş Sepetim</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="main-navbar">
+        <div class="container">
+            <!-- menu -->
+            <ul class="main-menu">
+                <li><a href="/">Ana Sayfa</a></li>
+                @foreach (Category c in Model.Where(x => x.ParentID == null))
+                {
+                    <li>
+                        <a href="#">@c.Name</a>
+                        @if (c.SubCategories.Any())
+                        {
+                            <ul class="sub-menu">
+                                @foreach (Category subCategory in c.SubCategories)
+                                {
+                                    <li><a href="#">@subCategory.Name</a></li>
+                                }
+                            </ul>
+                        }
+                    </li>
+                }
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- Header section end -->

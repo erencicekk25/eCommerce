@@ -1,0 +1,42 @@
+﻿@model Brand
+<div class="right_col" role="main">
+    <div class="">
+        <div class="clearfix"></div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 ">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>Marka Güncelle</h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <br />
+                        <form asp-controller="Brand" asp-action="Update" method="post" class="form-horizontal form-label-left">
+                            <input type="hidden" asp-for="@Model.ID" />
+                            <div class="item form-group">
+                                <label class="col-form-label col-md-3 col-sm-3 label-align" asp-for="@Model.Name"></label>
+                                <div class="col-md-6 col-sm-6 ">
+                                    <input class="form-control" asp-for="@Model.Name">
+                                    <span asp-validation-for="@Model.Name"></span>
+                                </div>
+                            </div>
+                            <div class="ln_solid"></div>
+                            <div class="item form-group">
+                                <div class="col-md-6 col-sm-6 offset-md-3">
+                                    <a class="btn btn-primary" asp-controller="Brand" asp-action="Index">İptal</a>
+                                    <button class="btn btn-primary" type="reset">Temizle</button>
+                                    <button type="submit" class="btn btn-success">Güncelle</button>
+                                </div>
+                            </div>
+                            @Html.AntiForgeryToken()
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</div>
+<!-- /page content -->
